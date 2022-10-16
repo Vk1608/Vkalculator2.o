@@ -16,7 +16,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
     Button b1,b2,b3,b4,b5,b6,b7,b8,b9,b0,bdot,bpi,beql,badd,bmin,bmul,bdiv,bsqr,bfact,br1,br2,bac,bc,bsin,bcos,btan,blog,bln,bsqrt,bres;
     TextView tvprim,tvsec;
-    String pi="3.14159265";
+    String pi="3.14";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -262,7 +262,26 @@ public class MainActivity extends AppCompatActivity {
     //Factorial Function
     int factorial(int n)
     {
-        return (n==1 ||n==0)?1:n*factorial(n-1);
+        // return (n==1 ||n==0)?1:n*factorial(n-1);
+        if (n==0 || n==1){
+            return 1;
+        }
+
+        else{
+            return n*factorial(n-1);
+        }
+    }
+
+    int vikram(int n)
+    {
+        // return (n==1 ||n==0)?1:n*factorial(n-1);
+        if (n==0 || n==1){
+            return 1;
+        }
+
+        else{
+            return n*vikram(n-1);
+        }
     }
 
     //eval function
