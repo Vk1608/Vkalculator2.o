@@ -265,6 +265,11 @@ public class MainActivity extends AppCompatActivity {
         return (n==1 ||n==0)?1:n*factorial(n-1);
     }
 
+    int factorialnew(int n)
+    {
+        return (n==1 ||n==0)?1:n*factorial(n-1);
+    }
+
     //eval function
     public static double eval(final String str){
         return new Object(){
