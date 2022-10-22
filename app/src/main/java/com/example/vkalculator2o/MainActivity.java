@@ -303,6 +303,23 @@ public class MainActivity extends AppCompatActivity {
     {
         return n*(n+1);
     }
+    static double medianCal(int  n,double in[])
+	{
+		double m=0;	
+		
+		if(n%2==1)
+		{
+			m=in[((n+1)/2)-1];
+			
+		}
+		else
+		{
+			m=(in[n/2-1]+in[n/2])/2;
+			
+		}
+	return m;
+	
+	 }
 
     //eval function
     public static double eval(final String str){
