@@ -350,6 +350,50 @@ public class MainActivity extends AppCompatActivity {
 	return m;
 	
 	 }
+int SuperPalindromes(int L, int R)
+{
+    // Range [L, R]
+ 
+    // Upper limit
+    int LIMIT = 100000;
+ 
+    int ans = 0;
+ 
+    // count odd length palindromes
+    for (int i = 0 ;i < LIMIT; i++)
+    {
+        string s = to_string(i); // if s = '1234'
+ 
+        string rs = s.substr(0, s.size() - 1);
+        reverse(rs.begin(), rs.end());
+ 
+        // then, t = '1234321'
+        string p = s + rs;
+        int p_sq     = pow(stoi(p), 2);
+        if (p_sq > R)
+            break;
+        if (p_sq >= L and ispalindrome(p_sq))
+            ans = ans + 1;
+    }
+ 
+    // count even length palindromes
+    for (int i = 0 ;i < LIMIT; i++)
+    {
+        string s = to_string(i); // if s = '1234'
+ 
+        string rs = s;
+        reverse(rs.begin(), rs.end());
+        string p = s + rs; // then, t = '12344321'
+        int p_sq = pow(stoi(p), 2);
+        if (p_sq > R)
+            break;
+        if (p_sq >= L and ispalindrome(p_sq))
+            ans = ans + 1;
+    }
+ 
+    // Return count of super-palindromes
+    return ans;
+}
 
     //eval function
     public static double eval(final String str){
