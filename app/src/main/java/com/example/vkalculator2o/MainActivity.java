@@ -282,6 +282,18 @@ public void reverse(int[] A, int i, int j) {
     while(i < j) swap(A, i++, j--);
 }
 
+static int maxProductSubArray(int arr[]) {
+    int result = Integer.MIN_VALUE;
+    for(int i=0;i<arr.length-1;i++) 
+        for(int j=i+1;j<arr.length;j++) {
+            int prod = 1;
+            for(int k=i;k<=j;k++) 
+                prod *= arr[k];
+            result = Math.max(result,prod);
+        }
+   return result;     
+}
+
     //Factorial Function
     int factorial(int n)
     {
