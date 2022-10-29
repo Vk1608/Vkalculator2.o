@@ -282,6 +282,49 @@ public void reverse(int[] A, int i, int j) {
     while(i < j) swap(A, i++, j--);
 }
 
+static int maxProductSubArray(int arr[]) {
+    int result = Integer.MIN_VALUE;
+    for(int i=0;i<arr.length-1;i++) 
+        for(int j=i+1;j<arr.length;j++) {
+            int prod = 1;
+            for(int k=i;k<=j;k++) 
+                prod *= arr[k];
+            result = Math.max(result,prod);
+        }
+   return result;     
+}
+
+
+static int knapsackUtil(int[] wt,int[] val, int ind, int W,int[][] dp){
+
+    if(ind == 0){
+        if(wt[0] <=W) return val[0];
+        else return 0;
+    }
+    
+    if(dp[ind][W]!=-1)
+        return dp[ind][W];
+        
+    int notTaken = 0 + knapsackUtil(wt,val,ind-1,W,dp);
+    
+    int taken = Integer.MIN_VALUE;
+    if(wt[ind] <= W)
+        taken = val[ind] + knapsackUtil(wt,val,ind-1,W-wt[ind],dp);
+        
+    return dp[ind][W] = Math.max(notTaken,taken);
+}
+
+
+static int knapsack(int[] wt,int[] val, int n, int W){
+    
+    int dp[][]= new int[n][W+1];
+    for(int row[]: dp)
+    Arrays.fill(row,-1);
+    return knapsackUtil(wt, val, n-1, W, dp);
+}
+
+
+
     //Factorial Function
     int factorial(int n)
     {
