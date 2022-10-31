@@ -494,7 +494,7 @@ static int editDistance(String S1, String S2){
 
     int sum(int n)
     {
-        return ((n+1)*n)/2;
+        return (n*(n+1))/2;
     }
 
     int sumOfOdd(int n)
@@ -504,7 +504,7 @@ static int editDistance(String S1, String S2){
 
     int sumOfEven(int n) 
     {
-        return (n+1)*n;
+        return (n)*(n+1);
     }
 
     public static boolean isPalindrome(String str)
